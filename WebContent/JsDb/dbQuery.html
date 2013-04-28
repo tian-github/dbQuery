@@ -182,7 +182,9 @@ code {
 			
 			//连接开关
 			lockBtn();
+			//查询按钮开关
 			bindExecute();
+			//更新按钮开关
 			bindUpdate();
 
 		});
@@ -233,7 +235,7 @@ code {
 			
 		}
 		
-		
+		//更新结果集合
 		function refreshView(result){
 			var template=$("#tableTemplate").html();
 			

@@ -8,15 +8,20 @@ var dbQuery = (function() {
 		conn : null,
 		lock : false,
 		reset_conn : function(dbstr) {
+//			创建odbc对象
 			var connection = new ActiveXObject("ADODB.Connection");
+//			连接字符串
+//			DSN=mysqldb;SERVER=127.0.0.1;User ID=root;Password=root;Database=esap;Port=3306
 			connection.ConnectionString = dbstr;
 			this.conn = connection;
 			this.lock_conn();
 		},
+//		标记锁定
 		lock_conn : function() {
 			lock = true;
 			// .....
 		},
+//		释放连接
 		release_conn : function() {
 			if (typeof (this.conn) != 'undefined') {
 				this.conn = null;
@@ -25,13 +30,17 @@ var dbQuery = (function() {
 
 			// ....
 		},
+//		执行查询
 		executeQuery : function(sql) {
 			var rtn = [];
 			if (sql) {
 				try {
+//					开启连接
 					this.conn.open();
+//					resultSet
 					var rs = new ActiveXObject("ADODB.Recordset");
 					rs.open(sql, this.conn);
+//					数据转换
 					rtn = this.parseRes(rs);
 				} finally {
 					if (typeof (rs) != 'undefined') {
@@ -46,6 +55,7 @@ var dbQuery = (function() {
 			return rtn;
 
 		},
+//		数据转换
 		parseRes : function(rs) {
 			var data = [];
 			data.datas = {};
@@ -80,6 +90,7 @@ var dbQuery = (function() {
 			}
 			return data;
 		},
+//		执行sql
 		executeUpdate : function(sql) {
 			if (sql) {
 				try {
