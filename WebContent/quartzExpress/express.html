@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>quartz express</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<!-- CSS -->
+<link href="../bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<style type="text/css">
+
+/* Sticky footer styles
+      -------------------------------------------------- */
+html,body {
+	height: 100%;
+	/* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+	min-height: 100%;
+	height: auto !important;
+	height: 100%;
+	/* Negative indent footer by it's height */
+	margin: 0 auto -60px;
+}
+
+/* Set the fixed height of the footer here */
+#push,#footer {
+	height: 60px;
+}
+
+#footer {
+	background-color: #f5f5f5;
+}
+
+/* Lastly, apply responsive CSS fixes as necessary */
+@media ( max-width : 767px) {
+	#footer {
+		margin-left: -20px;
+		margin-right: -20px;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}
+
+/* Custom page CSS
+      -------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+#wrap>.container {
+	padding-top: 60px;
+}
+
+.container .credit {
+	margin: 20px 0;
+}
+
+code {
+	font-size: 80%;
+}
+</style>
+<link href="../bootstrap/assets/css/bootstrap-responsive.css"
+	rel="stylesheet">
+
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="../assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../bootstrap/assets/ico/favicon.png">
+</head>
+
+<body>
+
+
+	<!-- Part 1: Wrap all page content here -->
+	<div id="wrap">
+
+		<!-- Fixed navbar -->
+		<div class="navbar navbar-fixed-top">
+			<div class="navbar-inner">
+				<div class="container">
+					<button type="button" class="btn btn-navbar" data-toggle="collapse"
+						data-target=".nav-collapse">
+						<span class="icon-bar"></span> <span class="icon-bar"></span> <span
+							class="icon-bar"></span>
+					</button>
+					<a class="brand" href="#">quartz express</a>
+					<div class="nav-collapse collapse">
+						<ul class="nav">
+							<li class="active"><a href="#">Home</a></li>
+						</ul>
+					</div>
+					<!--/.nav-collapse -->
+				</div>
+			</div>
+		</div>
+
+		<!-- Begin page content -->
+		<div class="container">
+			<div class="page-header">
+				<div class="input-prepend input-append">
+					<span class="add-on">频率</span><select class="span1" id="rateControl">
+						<option value="year">每年</option>
+						<option value="month">每月</option>
+						<option value="week">每周</option>
+						<option value="day">每日</option>
+						<option value="hour">每时</option>
+						<option value="min">每分</option>
+					<!-- 	<option value="interval">间隔</option> -->
+				</select> 
+				
+				<input type="button" class="btn" id="result" value="获取" />
+				</div>
+			</div>
+			<!-- data -->
+			<div id="data_div" >
+			
+			<div class="input-prepend input-append" rate="year" style="display: block">
+						 <hr>
+						 <span class="add-on">每年</span><input class="span1" f_type="month" type="text" /> <span class="add-on">月</span><input class="span1" f_type="day"
+							type="text" /><span class="add-on">日</span><input class="span1" f_type="hour" type="text" /><span class="add-on">时</span><input
+						class="span1"	f_type="min" type="text" /><span class="add-on">分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+			
+			<div class="input-prepend input-append"  rate="month" style="display: block">
+			<hr>
+						<span class="add-on">每月</span><input class="span1" f_type="day"
+							type="text" /><span class="add-on">日</span><input class="span1" f_type="hour" type="text" /><span class="add-on">时</span><input
+						class="span1"	f_type="min" type="text" /><span class="add-on">分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+			
+			<div class="input-prepend input-append"  rate="week" style="display: block">
+			<hr>
+						<span class="add-on">星期</span><select class="span1" f_type="week">
+							<option value="MON">一</option>
+							<option value="TUE">二</option>
+							<option value="WED">三</option>
+							<option value="THU">四</option>
+							<option value="FRI">五</option>
+							<option value="SAT">六</option>
+							<option value="SUN">日</option>
+						</select><span class="add-on">时</span><input
+						class="span1"	f_type="min" type="text" /><span class="add-on">分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+					
+					<div class="input-prepend input-append" rate="day" style="display: block">
+						<hr>
+						<span class="add-on">每日</span><input class="span1" f_type="hour" type="text" /><span class="add-on">时</span><input
+						class="span1"	f_type="min" type="text" /><span class="add-on">分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+					<hr>
+					<div class="input-prepend input-append" rate="hour" style="display: block">
+						<span class="add-on">每时</span><input
+						class="span1"	f_type="min" type="text" /><span class="add-on">分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+					
+					<div class="input-prepend input-append" rate="min" style="display: block">
+						<hr>
+						<span class="add-on">每分</span><input class="span1" f_type="second" type="text" /><span class="add-on">秒</span>
+					</div>
+			
+			</div>
+		</div>
+
+		<div id="push"></div>
+	</div>
+
+	<div id="footer">
+		<div class="container">
+			<p class="muted credit">
+				 <a href="###">quartz express</a>
+				简单quartz 表达式
+			</p>
+		</div>
+	</div>
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="../bootstrap/assets/js/jquery.js"></script>
+	<script src="../bootstrap/assets/css/mustache.js"></script>
+	<script src="./quartzExpress.js"></script>
+	
+</body>
+</html>
