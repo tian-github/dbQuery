@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Template &middot; Bootstrap</title>
+<meta http-equiv="Access-Control-Allow-Origin" content="*">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<script type="text/javascript"
+	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+<!-- Le styles -->
+<link href="../bootstrap/assets/css/bootstrap.css" rel="stylesheet">
+<script type="text/javascript" src="../cbmChar/cmb_chart.js"></script>
+<style type="text/css">
+body {
+	padding-top: 20px;
+	padding-bottom: 60px;
+}
+
+/* Custom container */
+.container {
+	margin: 0 auto;
+	max-width: 1000px;
+}
+
+.container>hr {
+	margin: 60px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+	margin: 80px 0;
+	text-align: center;
+}
+
+.jumbotron h1 {
+	font-size: 100px;
+	line-height: 1;
+}
+
+.jumbotron .lead {
+	font-size: 24px;
+	line-height: 1.25;
+}
+
+.jumbotron .btn {
+	font-size: 21px;
+	padding: 14px 24px;
+}
+
+/* Supporting marketing content */
+.marketing {
+	margin: 60px 0;
+}
+
+.marketing p+h4 {
+	margin-top: 28px;
+}
+
+/* Customize the navbar links to be fill the entire space of the .navbar */
+.navbar .navbar-inner {
+	padding: 0;
+}
+
+.navbar .nav {
+	margin: 0;
+	display: table;
+	width: 100%;
+}
+
+.navbar .nav li {
+	display: table-cell;
+	width: 1%;
+	float: none;
+}
+
+.navbar .nav li a {
+	font-weight: bold;
+	text-align: center;
+	border-left: 1px solid rgba(255, 255, 255, .75);
+	border-right: 1px solid rgba(0, 0, 0, .1);
+}
+
+.navbar .nav li:first-child a {
+	border-left: 0;
+	border-radius: 3px 0 0 3px;
+}
+
+.navbar .nav li:last-child a {
+	border-right: 0;
+	border-radius: 0 3px 3px 0;
+}
+</style>
+<link href="../bootstrap/assets/css/bootstrap-responsive.css"
+	rel="stylesheet">
+<script src="../Highcharts-3.0.2/js/highcharts.src.js"></script>
+<script src="../Highcharts-3.0.2/js/modules/exporting.js"></script>
+<!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+<!--[if lt IE 9]>
+      <script src="../bootstrap/assets/js/html5shiv.js"></script>
+    <![endif]-->
+
+<!-- Fav and touch icons -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144"
+	href="../bootstrap/assets/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114"
+	href="../bootstrap/assets/ico/apple-touch-icon-114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72"
+	href="../bootstrap/assets/ico/apple-touch-icon-72-precomposed.png">
+<link rel="apple-touch-icon-precomposed"
+	href="../bootstrap/assets/ico/apple-touch-icon-57-precomposed.png">
+<link rel="shortcut icon" href="../bootstrap/assets/ico/favicon.png">
+</head>
+
+<body>
+
+	<div class="container">
+
+		<div class="masthead">
+			<h3 class="muted">CMB chart</h3>
+			<div class="navbar">
+				<div class="navbar-inner">
+					<div class="container">
+						<ul class="nav">
+							<li><a href="javascript:void(0)">Home</a></li>
+							<li><a href="javascript:void(0)">重新加载数据</a></li>
+							<li><a href="javascript:void(0)"></a></li>
+							<li><a href="javascript:void(0)"></a></li>
+							<li><a href="javascript:void(0)"></a></li>
+							<li><a href="javascript:void(0)"></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- /.navbar -->
+		</div>
+
+		<!-- Jumbotron -->
+		<div class="jumbotron">
+			<div>
+				<div class="input-prepend">
+					<span class="add-on">读取文件</span><input class="span9"
+						id="prependedInput" type="file" placeholder="加载数据" /><span class="add-on"><a
+						 href="javascript:reloadData('prependedInput')"><i class="icon-pencil"></i>重新加载</a></span>
+					</li>
+				</div>
+			</div>
+			<hr>
+			<div class="" id="container" style="width: 100%"></div>
+			<hr>
+			<p>
+			<h3>数据列表</h3>
+			</p>
+
+			<TABLE class="table table-hover">
+				<THEAD>
+					<TR>
+						<TH>#</TH>
+						<TH>账号</TH>
+						<TH>日期</TH>
+						<TH>币种</TH>
+						<TH>支出</TH>
+						<TH>存入</TH>
+						<TH>余额</TH>
+						<TH>说明</TH>
+					</TR>
+				</THEAD>
+				<TBODY id="data_body">
+				</TBODY>
+			</TABLE>
+
+		</div>
+		<hr>
+
+		<div class="footer">
+			<p>&copy; Company 2013</p>
+		</div>
+
+	</div>
+	<!-- /container -->
+
+	<!-- Le javascript
+    ================================================== -->
+	<!-- Placed at the end of the document so the pages load faster -->
+	<script src="../bootstrap/assets/js/bootstrap-transition.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-alert.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-modal.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-dropdown.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-scrollspy.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-tab.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-tooltip.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-popover.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-button.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-collapse.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-carousel.js"></script>
+	<script src="../bootstrap/assets/js/bootstrap-typeahead.js"></script>
+	<script type="text/javascript">
+	//"WebContent/cbmChar/6225887854097439_History_20130609.txt"
+		function reloadData(elemId){
+			if($("#"+elemId).val()){
+				cmbChart.clear();
+			var store = cmbChart.reloadData("6225887854097439_History_20130609.txt");
+			}
+			else{
+				
+				var store = cmbChart.reloadData("6225887854097439_History_20130609.txt");
+				
+			}
+			$('#container').empty();
+			$("#data_body").empty();
+			cmbChart.dataBody(store.totals, "data_body");
+			
+			loadData(store);
+		}
+		
+		function loadData(store){
+			
+			var parseData = cmbChart.seriesParseMerge(store, "totals");
+			var incomeData = cmbChart.seriesParseMerge(store, "income");
+			var outcomeData = cmbChart.seriesParseMerge(store, "outcome");
+			cmbChart.hightChartSetting.series.push({
+				name : "资产余额情况",
+				data : parseData
+			});
+			cmbChart.hightChartSetting.series.push({
+				name : "个人收入情况",
+				data : incomeData
+			});
+			cmbChart.hightChartSetting.series.push({
+				name : "个人支出情况",
+				data : outcomeData
+			});
+
+			$('#container').highcharts(cmbChart.hightChartSetting);
+
+			//table build
+
+			cmbChart.dataBody(store.totals, "data_body");
+			
+		}
+		
+	$(function(){
+		reloadData("prependedInput");
+		
+	})	
+		
+		//reloadData("prependedInput");
+	</script>
+</body>
+</html>
